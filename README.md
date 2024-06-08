@@ -1,2 +1,2 @@
 # SKL
-A Web-based Blog Platform
+<img src="SKL proj.png">
