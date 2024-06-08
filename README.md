@@ -11,3 +11,5 @@ SKL is a web-based blog platform where users can immerse into the tales of our c
 ## Usage
 Download all the files. Locate the 'htdocs' folder in your computer's drive and unzip the files there. Via xampp, run both the Apache and MySql servers and navigate to PhpMyAdmin. Once there, create a new database and name it "skl_db". Import the skl_db.sql file from the project directory. Finally, type in 'localhost/skl/' in your browser. 
 
+## Dev log: 
+
