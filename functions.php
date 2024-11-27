@@ -469,7 +469,7 @@ function shortenContent($content, $char_limit) {
     // Check if the length of the content exceeds the character limit
     if (strlen($content) > $char_limit) {
         // Truncate the content to the specified character limit
-        $shortened_content = substr($content, 0, $char_limit) . '...';
+        $shortened_content = substr($content, 0, $char_limit) . ' . . .';
     } else {
         // If the content length is within the limit, use the original content
         $shortened_content = $content;

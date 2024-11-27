@@ -1,7 +1,3 @@
-<?php 
-  require_once('functions.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +18,10 @@
     }
 
     .logotext {
-        font-size: 32px; 
-        font-weight: 600; 
+      font-size: 32px;
+      font-weight: 800; 
+      font-family: 'Poppins'; 
+      color: #101720;
     }
 
     .mainCTA {
@@ -128,55 +126,16 @@
 <?php include_once('./components/topnav.php');?>
 
 <div class="wrapper">
-  <div class="content-wrapper bg-light" style="height: 600px; overflow-y: auto">
-    <div class="container container-fluid">
-      <div class="headerSec bg-light" style="position: absolute; width: 86%; padding-top: 30px; padding-bottom: 10px; z-index: 5">
-        <h1 class="display-6" style="font-weight: 750; font-family: 'Poppins'">Explore</h1>
-        <p class="text-muted" style="position: relative; bottom: 10px; font-weight: 300; font-family: 'Poppins'">Check out the latest stories from our creative minds</p>
-        <div class="container-fluid">
-            <form id="searchForm" style="margin-bottom: 30px">
-                <div class="row">
-                    <div class="col-md-10 offset-md-1">
-                        <div class="form-group">
-                            <div class="input-group input-group-lg">
-                                <input type="search" id="searchQuery" class="form-control form-control-lg" placeholder="Browse" style="font-weight: 400; font-family: 'Poppins'">
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-lg bg-indigo">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
+  <div class="content-wrapper bg-light" style="height: 600px; overflow-y: auto;">
+    <div class="container" style="height: 90vh">
+      <div class="row" style="height: 100%">
+        <div class="col-md-8" style="display: flex; flex-direction: column; align-items: flext-start; justify-content: center;">
+          <h1 style="font-size: 86px; font-family: 'Poppins'; font-weight: 750; color:101720"><span id="title"></span><span id="cursor">|</span></h1>
+          <h2 style="font-size: 18px; font-family: 'Poppins'; font-weight: 400; color:#2f2f2f">Whatever it is, we've got it covered.</h2>
+          <a href="home.php" type="button" class="btn bg-indigo btn-lg rounded-pill" style="font-family: 'Poppins'; width: 30%; margin-top: 50px">Get Started</a>
         </div>
-        <h3 id="sectionTitle" class="display-6 text-dark" style="font-size: 18px; font-weight: 750; font-family: 'Poppins'">Recently added</h3>
-      </div>
-
-      <div class="bloglist" style="padding-top: 280px">
-        <div id="searchResults"></div>
-        <div id="blogPosts">
-          <?php
-          // Render all published blogs
-          $posts = renderAllPublishedBlogs();
-          foreach ($posts as $post) {
-          ?>
-          <div class="blog-item row border rounded overflow-hidden shadow-sm h-md-300 position-relative col-md-12 bg-white" style="padding: 15px 10px 15px 15px; margin: 0 0 20px 2px">
-            <div class="col-md-7 d-flex flex-column">
-                <h3 class="display-6 title" style="font-weight: 750; font-family: 'Poppins'; font-size: 28px"><?php echo htmlspecialchars($post['title']); ?></h3>
-                <h5 class="text-muted poster" style="position: relative; bottom: 10px; font-size: 18px">By: <?php echo htmlspecialchars($post['fname'] . ' ' . $post['lname']); ?></h5>
-                <h6 class="text-muted ctgry" style="position: relative; bottom: 10px; font-weight: 750"><?php echo htmlspecialchars($post['category_name']); ?></h6>
-                <p style="width: 100%;" class="flex-grow-1">
-                    <?php echo shortenContent($post['content'], 300); ?>
-                </p>
-                <a class="mt-auto text-indigo" style="font-weight: 500; font-family: 'Poppins'" href="post.php?post_id=<?php echo htmlspecialchars($post['post_id']); ?>&title=<?php echo urlencode($post['title']); ?>&category=<?php echo urlencode($post['category_name']); ?>&thumbnail=<?php echo urlencode($post['thumbnail']); ?>&content=<?php echo urlencode($post['content']); ?>&fname=<?php echo urlencode($post['fname']); ?>&lname=<?php echo urlencode($post['lname']); ?>">Read more</a>
-            </div>
-            <div class="col">
-                <img src="<?php echo htmlspecialchars($post['thumbnail']); ?>" alt="" class="float-right" width="100%" height="100%" style="border-radius: 4px: object-fit: cover">
-            </div>
-          </div>
-          <?php } ?>
+        <div class="col-md-4" style="display: flex; flex-direction: column; align-items: flext-start; justify-content: center; position: relative; right: 60px">
+          <img src="assets/icons/blogging.svg" alt="" style="width: 120%; height: 100%">
         </div>
       </div>
     </div>
@@ -185,6 +144,7 @@
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
+ 
 <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
 <!-- jQuery -->
 <script src="assets/plugins/jquery/jquery.min.js"></script>
@@ -194,30 +154,7 @@
 <script src="assets/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="assets/dist/js/demo.js"></script>
+<script src="main.js"></script>
 
-<script>
-    $(document).ready(function() {
-        $('#searchForm').on('submit', function(event) {
-            event.preventDefault();
-            var query = $('#searchQuery').val();
-            if (query) {
-                $('#sectionTitle').text('Results');
-            }
-
-            $.ajax({
-                url: 'search_results.php',
-                type: 'GET',
-                data: { search: query },
-                success: function(data) {
-                    $('#blogPosts').hide();
-                    $('#searchResults').html(data);
-                },
-                error: function() {
-                    $('#searchResults').html('<p>An error has occurred</p>');
-                }
-            });
-        });
-    });
-</script>
 </body>
 </html>

@@ -169,27 +169,26 @@ $comments = get_comments($post_id);
 <div class="content-wrapper bg-light" style="height: 600px; background: red; padding-top: 50px; overflow-y: auto">
   
 
-  <div class="container container-fluid bg-light">
-    <div class="container bg-light" style="padding-top: 50px; padding-bottom: 30px">
-      <div class="container border rounded overflow-hidden shadow-sm h-md-150">
-        <div class="row">
-          <div class="col-lg-4">
-            <img src="<?php echo $thumbnail?>" alt="" style="width: 100%; height: 200px; object-fit: cover">
+  <div class="container container-fluid bg-light"> 
+    <div class="container" style="padding-top: 50px; padding-bottom: 30px">
+      <div class="" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
+         <div class="col-lg-8" style="padding: 10px 0 10px 10px">
+            <h2 class="display-3" style="font-family: 'Poppins'; font-weight: 500; font-size: 44px; height: 85%" ><?php echo $title; ?></h2>
+            <h4 class="text-muted display-4" style="font-family: 'Poppins'; font-size: 14px; font-weight: 350; position: relative; bottom: 4px">Category: <?php echo $category; ?></h4>
           </div>
-          <div class="col-lg-8" style="padding: 10px 0 10px 10px">
-            <h2 class="display-3" style="font-family: 'Poppins'; font-weight: 750; font-size: 56px; height: 85%" ><?php echo $title; ?></h2>
-            <h4 class="text-muted display-4" style="font-size: 18px; font-weight: 750; position: relative; bottom: 15px"><?php echo $category; ?></h4>
+          <div class="col-lg-8" style="margin: 60px 0 60px 0">
+            <img src="<?php echo $thumbnail?>" alt="" style="width: 100%; height: 60vh; object-fit: cover; border-radius: 25px">
           </div>
-        </div>
+          <div class="col-md-8">
+            <h5 style="font-size: 16px; font-family: 'Poppins'; text-align: center; font-weight: 300"> By: <strong><?php echo $fname . ' ' . $lname; ?></strong></h3>
+              <p class="" style="letter-spacing: 0.5px; color: #101720; font-size: 16px; line-height: 30px; word-spacing: 5px; white-space: pre-line; font-weight: 350; font-family: 'Poppins'; ">
+              <?php echo $content?>
+              </p>
+            </div>  
       </div>
-      
     </div>
 
-    <div>
-    <h5 class="text-indigo" style="margin: 20px 0 20px 0; font-size: 24px; font-family: 'Poppins'; text-align: center"> By: <strong><?php echo $fname . ' ' . $lname; ?></strong></h3>
-      <p class="text-black" style="font-size: 22px; line-height: 40px; word-spacing: 6px; white-space: pre-line; padding: 0 100px 50px 100px; font-weight: 400; font-family: 'Poppins'">
-       <?php echo $content?>
-      </p>
+
       <div class="comment container">
         <div class="row">
 
@@ -212,7 +211,7 @@ $comments = get_comments($post_id);
                     <div class="form-group">
                         <textarea name="comment" class="form-control" id="userComments" rows="4" placeholder="Write your thoughts" maxlength="200" required></textarea>
                     </div>
-                    <input name="submit-comment" type="submit" class="btn bg-indigo float-right" value="Comment">
+                    <input name="submit-comment" type="submit" class="btn bg-fuchsia float-right" value="Comment">
                 </form>
               </div>
             </div>
