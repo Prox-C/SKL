@@ -1,5 +1,5 @@
 # SKL: Blogs & Articles
-<!--<img src="SKL proj.png">-->
+<img src="SKL proj.png">
 
 ## Overview
 
