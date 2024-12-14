@@ -21,7 +21,6 @@ function connect() // DATABASE CONNECTION
 }
 
 // USER-RELATED FUNCTIONS
-
 function auth($email)
 {
     $conn = connect();
@@ -33,7 +32,6 @@ function auth($email)
 
 	return $result;
 }
-
 function add_user($email, $fname, $lname, $password, $role)
 {
     $conn = connect();
@@ -71,9 +69,6 @@ function add_user($email, $fname, $lname, $password, $role)
         return FALSE;
     }
 }
-
-
-
 function get_users()
 {
 	$conn = connect(); 
@@ -84,7 +79,6 @@ function get_users()
 
 	return $result;
 }
-
 function update_user($id, $email, $fname, $lname, $password)
 {
     $conn = connect();
@@ -122,8 +116,6 @@ function update_user($id, $email, $fname, $lname, $password)
         return FALSE;
     }
 }
-
-
 function delete_user($id, $current_user_id) 
 {
     if ($id == 1) {
@@ -169,9 +161,6 @@ function delete_user($id, $current_user_id)
 
     return $response; 
 }
-
-
-
 function count_users()
 {
     $conn = connect(); 
@@ -184,7 +173,6 @@ function count_users()
 }
 
 // CATEGORY RELATED FUNCTIONS
-
 function add_category($category_name)
 {
     $conn = connect();
@@ -215,8 +203,6 @@ function add_category($category_name)
         return FALSE;
     }
 }
-
-
 function get_categories()
 {
     $conn = connect();
@@ -227,7 +213,6 @@ function get_categories()
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
 	return $result;
 }
-
 function update_category($id, $category_name)
 {
     $conn = connect();
@@ -251,7 +236,6 @@ function update_category($id, $category_name)
 		return FALSE;
 	}  
 }
-
 function delete_category($id) 
 {
     $conn = connect();
@@ -265,7 +249,6 @@ function delete_category($id)
 
     return $response; 
 }
-
 function count_categories()
 {
     $conn = connect(); 
@@ -278,7 +261,6 @@ function count_categories()
 }
 
 // POST-RELATED FUNCTIONS
-
 function publish($title, $thumbnail, $content, $status, $category_id, $editor) 
 {
     $conn = connect();
@@ -322,7 +304,6 @@ function publish($title, $thumbnail, $content, $status, $category_id, $editor)
         throw $e;
     }
 }
-
 function update_blog($title, $thumbnail, $content, $status, $category_id, $post_id)
 {
     $conn = connect();
@@ -358,7 +339,6 @@ function update_blog($title, $thumbnail, $content, $status, $category_id, $post_
         throw $e;
     }
 }
-
 function renderAllPublishedBlogs()
 {
     // Connect to the database
@@ -388,7 +368,6 @@ function renderAllPublishedBlogs()
 
     return $posts;
 }
-
 function renderBlogs($user_id)
 {
     // Connect to the database
@@ -420,7 +399,6 @@ function renderBlogs($user_id)
 
     return $posts;
 }
-
 function countAllBlogs() 
 {
     $conn = connect();
@@ -432,7 +410,6 @@ function countAllBlogs()
     
 	return $result['total_posts'];
 }
-
 function renderDrafts($user_id)
 {
     // Connect to the database
@@ -464,7 +441,6 @@ function renderDrafts($user_id)
 
     return $posts;
 }
-
 function shortenContent($content, $char_limit) {
     // Check if the length of the content exceeds the character limit
     if (strlen($content) > $char_limit) {
@@ -476,7 +452,6 @@ function shortenContent($content, $char_limit) {
     }
     return $shortened_content;
 }   
-
 function countuserBlogs($userId, $status) {
     // Establish a connection to the database
     $conn = connect();
@@ -514,7 +489,6 @@ function countuserBlogs($userId, $status) {
 }
 
 // COMMENT-RELATED FUNCRIONS
-
 function add_comment($alias, $comment, $post_id) 
 {
     $conn = connect();
@@ -555,7 +529,6 @@ function add_comment($alias, $comment, $post_id)
         throw $e;
     }
 }
-
 function get_comments($post_id) 
 {
     $conn = connect();
@@ -579,7 +552,6 @@ function get_comments($post_id)
         throw $e;
     }
 }
-
 function count_comments($post_id) 
 {
     $conn = connect();
@@ -603,10 +575,4 @@ function count_comments($post_id)
         throw $e;
     }
 }
-
-
-
-
-
-
 ?>

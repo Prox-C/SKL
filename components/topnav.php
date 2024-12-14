@@ -30,7 +30,7 @@
             <a href="#" class="nav-link text-dark" style="font-family: 'Poppins';">About</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link text-dark" style="font-family: 'Poppins';">Membership</a>
+            <a href="register.php" class="nav-link text-dark" style="font-family: 'Poppins';">Membership</a>
           </li>
         </ul>
         <div class="mainCTA">
