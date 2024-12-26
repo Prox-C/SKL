@@ -130,7 +130,7 @@
 <div class="wrapper">
   <div class="content-wrapper bg-light" style="height: 600px; overflow-y: auto">
     <div class="container container-fluid">
-      <div class="headerSec bg-light" style="position: absolute; width: 86%; padding-top: 30px; padding-bottom: 10px; z-index: 5">
+      <div class="headerSec bg-light" style="width: 100%; padding-top: 30px; padding-bottom: 10px; z-index: 5">
         <h1 class="display-6" style="font-weight: 750; font-family: 'Poppins'">Explore</h1>
         <p class="text-muted" style="position: relative; bottom: 10px; font-weight: 300; font-family: 'Poppins'">Check out the latest stories from our creative minds</p>
       
@@ -155,7 +155,7 @@
         <h3 id="sectionTitle" class="display-6 text-dark" style="font-size: 18px; font-weight: 400; font-family: 'Poppins'">Latest Blogs</h3>
       </div>
 
-      <div class="bloglist" style="padding-top: 280px">
+      <div class="bloglist" style="padding-top: 50px">
         <div id="searchResults"></div>
         <div id="blogPosts">
           <?php

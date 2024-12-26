@@ -24,7 +24,11 @@ if(isset($_POST['login'])) {
     $_SESSION['active_user_id'] = $user['id'];
 
     // Redirect based on user role
-    
+    if ($user['role'] == "admin") {
+        echo"<script>location.href='admin-panel/admin.php'</script>";
+    } else if ($user['role'] == "editor") {  
+        echo"<script>location.href='editor-panel/editor.php'</script>";
+    }
     
 } else {
     echo"<script>alert('Wrong Password');</script>";

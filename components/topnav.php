@@ -32,6 +32,9 @@
           <li class="nav-item">
             <a href="register.php" class="nav-link text-dark" style="font-family: 'Poppins';">Membership</a>
           </li>
+          <li class="nav-item">
+            <a href="register.php" class="nav-link text-dark" style="font-family: 'Poppins';">Help</a>
+          </li>
         </ul>
         <div class="mainCTA">
             <a href="./login.php" type="button" class="btn bg-indigo btn-block rounded-pill" style="font-family: 'Poppins'">Sign in</a>
