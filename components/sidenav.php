@@ -1,5 +1,6 @@
 <?php
 if (isset($_POST['sign-out'])) {
+  insertSession($_SESSION['active_user_email'], 'out');
   // Clear all session variables
   session_unset();
   // Destroy the session
@@ -54,8 +55,8 @@ if (isset($_POST['sign-out'])) {
               </div>
             </div>
           </div>
-
-<nav class="main-header navbar navbar-expand bg-indigo navbar-dark" style="padding-top: 16px">
+<style>*{font-family: 'Poppins';}</style>
+<nav class="main-header navbar navbar-expand bg-light navbar-light" style="padding-top: 16px">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -147,21 +148,27 @@ if (isset($_POST['sign-out'])) {
   </a>
   <ul class="nav nav-treeview">
     <li class="nav-item">
-      <a href="./audit_option1.php" class="nav-link">
+      <a href="users_audit.php" class="nav-link">
         <i class="far fa-circle nav-icon"></i>
-        <p>Option 1</p>
+        <p style="font-family: 'Poppins'">Users</p>
       </a>
     </li>
     <li class="nav-item">
-      <a href="./audit_option2.php" class="nav-link">
+      <a href="posts_audit.php" class="nav-link">
         <i class="far fa-circle nav-icon"></i>
-        <p>Option 2</p>
+        <p style="font-family: 'Poppins'">Posts</p>
       </a>
     </li>
     <li class="nav-item">
-      <a href="./audit_option3.php" class="nav-link">
+      <a href="comments_audit.php" class="nav-link">
         <i class="far fa-circle nav-icon"></i>
-        <p>Option 3</p>
+        <p style="font-family: 'Poppins'">Comments</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="sessions_audit.php" class="nav-link">
+        <i class="far fa-circle nav-icon"></i>
+        <p style="font-family: 'Poppins'">Sessions</p>
       </a>
     </li>
   </ul>

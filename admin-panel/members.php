@@ -81,7 +81,7 @@
   <div class="modal fade" id="add-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="TRUE">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-        <div class="modal-header bg-indigo">
+        <div class="modal-header bg-light">
             <h5 class="modal-title" id="confirmAlert"> User Registration</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -132,15 +132,21 @@
     </div>
   </div>
 
+  <style>
+    * {
+      font-family: 'Poppins';
+    }
+  </style>
+
 
   <div class="content-wrapper" style="height: 600px">
     <div class="container" style="padding-top: 30px; padding-left: 15px">
         <h1 class="display-5" style="font-size: 42px; font-weight: 600; font-family: 'Poppins'">Members</h1>
         <p class="text-muted" style="position: relative; bottom: 12px; font-size: 22px; font-weight: 450; font-family: 'Poppins'"> Manage Users </p>
 
-        <a href="" class="btn bg-indigo" style="margin-bottom: 30px;" data-toggle="modal" data-target="#add-user">Register new<svg id="Layer_1" viewBox="0 0 24 24"xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" height="16" fill="#fff" style="position: relative; bottom: 2px; margin-left: 5px"><path d="m12 0a12 12 0 1 0 12 12 12.013 12.013 0 0 0 -12-12zm4 13h-3v3a1 1 0 0 1 -2 0v-3h-3a1 1 0 0 1 0-2h3v-3a1 1 0 0 1 2 0v3h3a1 1 0 0 1 0 2z"/></svg></a>
+        <a href="" class="btn bg-indigo" style="margin-bottom: 30px;  font-family: 'Poppins'" data-toggle="modal" data-target="#add-user">Register new<svg id="Layer_1" viewBox="0 0 24 24"xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" height="16" fill="#fff" style="position: relative; bottom: 2px; margin-left: 5px"><path d="m12 0a12 12 0 1 0 12 12 12.013 12.013 0 0 0 -12-12zm4 13h-3v3a1 1 0 0 1 -2 0v-3h-3a1 1 0 0 1 0-2h3v-3a1 1 0 0 1 2 0v3h3a1 1 0 0 1 0 2z"/></svg></a>
 
-        <div class="card">
+        <div class="card" style=" font-family: 'Poppins'">
               <div class="card-header bg-light">
                 <p class="card-title">Registered Users (<?php echo $_SESSION['total_users'] ?>)</p>
                 <div class="card-tools">
@@ -156,7 +162,7 @@
                 </div>
               </div>
               <!-- /.card-header -->
-              <div class="card-body table-responsive p-0" style="max-height: 316px; overflow-y: auto">
+              <div class="card-body table-responsive p-0" style="max-height: 316px; overflow-y: auto;">
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
@@ -212,7 +218,7 @@
                             <div class="modal fade" id="delete_acc_<?php echo $record['id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                   <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
-                                      <div class="modal-header bg-danger">
+                                      <div class="modal-header bg-light">
                                         <h5 class="modal-title" id="confirmAlert">Confirmation</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
@@ -234,7 +240,7 @@
                                 <div class="modal fade" id="edit_user_<?php echo $record['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="TRUE">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
-                                        <div class="modal-header bg-info">
+                                        <div class="modal-header bg-light">
                                             <h5 class="modal-title" id="confirmAlert"> User Information</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>

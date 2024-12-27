@@ -39,7 +39,7 @@
 <div class="modal fade" id="add-category" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="TRUE">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-        <div class="modal-header bg-indigo">
+        <div class="modal-header bg-light">
             <h5 class="modal-title" id="confirmAlert"> New Category</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -67,6 +67,7 @@
   </div>
 
 
+
 <div class="wrapper">
   <!-- Navbar -->
   <?php include_once('../components/sidenav.php'); ?>
@@ -78,7 +79,7 @@
         
         <a href="" class="btn bg-indigo" style="margin-bottom: 30px;" data-toggle="modal" data-target="#add-category">Create new<svg id="Layer_1" viewBox="0 0 24 24"xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" height="16" fill="#fff" style="position: relative; bottom: 2px; margin-left: 5px"><path d="m12 0a12 12 0 1 0 12 12 12.013 12.013 0 0 0 -12-12zm4 13h-3v3a1 1 0 0 1 -2 0v-3h-3a1 1 0 0 1 0-2h3v-3a1 1 0 0 1 2 0v3h3a1 1 0 0 1 0 2z"/></svg></a>
 
-<div class="card" style="width: 60%">
+<div class="card" style="font-family: 'Poppins'">
       <div class="card-header bg-light">
         <p class="card-title">Topics (5)</p>
         <div class="card-tools">
@@ -122,14 +123,14 @@
                               </form>
                             </td>
                             <td  style="padding: 6px 5px 0 0;">
-                              <!-- <form action="categories.php" method="post" style="margin: 0;">
+                              <form action="categories.php" method="post" style="margin: 0;">
                               <button type="button" class="btn btn-outline-danger btn-sm btn-block" data-toggle="modal" data-target="#delete_cat_<?php echo $record['category_id'];?>" style="margin: 0;"> Delete </button>
-                              </form> -->
+                              </form>
                             </td>
                             <div class="modal fade" id="delete_cat_<?php echo $record['category_id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                   <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
-                                      <div class="modal-header bg-danger">
+                                      <div class="modal-header bg-light">
                                         <h5 class="modal-title" id="confirmAlert">Confirmation</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
@@ -151,7 +152,7 @@
                                 <div class="modal fade" id="edit_cat_<?php echo $record['category_id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="TRUE">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-        <div class="modal-header bg-info">
+        <div class="modal-header bg-light">
             <h5 class="modal-title" id="confirmAlert"> Edit Category</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>

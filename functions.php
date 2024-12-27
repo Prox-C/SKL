@@ -575,4 +575,119 @@ function count_comments($post_id)
         throw $e;
     }
 }
+
+//AUDIT TRAILING FUNCTIONS
+
+function getPostsAudit()
+{
+    try {
+        $conn = connect();
+        $query = "SELECT * FROM posts_audit ORDER BY action_date DESC";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Error retrieving posts audit: " . $e->getMessage();
+        return [];
+    }
+}
+
+function getUsersAudit()
+{
+    try {
+        $conn = connect();
+        $query = "SELECT * FROM users_audit ORDER BY action_date DESC";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Error retrieving users audit: " . $e->getMessage();
+        return [];
+    }
+}
+
+function getCommentsAudit()
+{
+    try {
+        $conn = connect(); // Assuming your `connect()` function is already defined
+        $query = "SELECT * FROM comments_audit ORDER BY action_date DESC";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Error retrieving comments audit: " . $e->getMessage();
+        return [];
+    }
+}
+
+function insertSession($email, $logtype)
+{
+    try {
+        $conn = connect();
+
+        // Validate logtype
+        if (!in_array($logtype, ['in', 'out'])) {
+            throw new InvalidArgumentException("Invalid log type. Must be 'in' or 'out'.");
+        }
+
+        // Prepare the query
+        $query = $conn->prepare("INSERT INTO `session` (email, log, date_logged) VALUES (:email, :logtype, NOW())");
+
+        // Bind parameters
+        $query->bindParam(':email', $email, PDO::PARAM_STR);
+        $query->bindParam(':logtype', $logtype, PDO::PARAM_STR);
+
+        // Execute the query
+        $response = $query->execute();
+
+        if ($response) {
+            $id = $conn->lastInsertId();
+            return $id;
+        } else {
+            return false;
+        }
+    } catch (PDOException $e) {
+        // Handle database errors
+        error_log("Database Error in insertSession: " . $e->getMessage());
+        return false;
+    } catch (InvalidArgumentException $e) {
+        // Handle validation errors
+        error_log("Validation Error in insertSession: " . $e->getMessage());
+        return false;
+    } finally {
+        // Cleanup
+        $conn = null;
+    }
+}
+
+function getSessions()
+{
+    try {
+        $conn = connect();
+
+        // Prepare the query
+        $query = $conn->prepare("SELECT * FROM `session` ORDER BY date_logged DESC");
+
+        // Execute the query
+        $query->execute();
+
+        // Fetch all records as an associative array
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        // Handle database errors
+        error_log("Database Error in getSessions: " . $e->getMessage());
+        return [];
+    } finally {
+        // Cleanup
+        $conn = null;
+    }
+}
+
+
+
+
+
 ?>

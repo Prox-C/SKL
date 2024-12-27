@@ -1,6 +1,7 @@
 <?php 
 
     if(isset($_POST['sign-out'])) {
+      insertSession($_SESSION['active_user_email'], 'out');
         session_unset();
         session_destroy();
     }

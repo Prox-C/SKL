@@ -22,6 +22,8 @@ if(isset($_POST['login'])) {
     // Set session variables on successful login
     $_SESSION['active_user'] = $user['fname'];
     $_SESSION['active_user_id'] = $user['id'];
+    $_SESSION['active_user_email'] = $user['email'];
+    insertSession($_SESSION['active_user_email'], 'in');
 
     // Redirect based on user role
     if ($user['role'] == "admin") {
