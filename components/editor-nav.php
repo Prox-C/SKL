@@ -2,8 +2,9 @@
 
     if(isset($_POST['sign-out'])) {
       insertSession($_SESSION['active_user_email'], 'out');
-        session_unset();
-        session_destroy();
+      session_unset();
+      session_destroy();
+      echo"<script>location.href='../index.php'</script>";
     }
 ?>
 
@@ -45,9 +46,9 @@
                   Are you sure you want to sign out?
                 </div>
                 <div class="modal-footer">
-                  <form action="../index.php" method="post">
+                  <form action="" method="post">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>     
-                    <input type="submit" class="btn btn-danger" value="Logout">
+                    <input name="sign-out" type="submit" class="btn btn-danger" value="Logout">
                   </form>                                
                 </div>
               </div>
@@ -126,6 +127,8 @@
             <p style="margin-left: 6px; font-family: 'Poppins'"> Categories  </p>
             </a>
           </li>
+
+          
          
       <!-- /.sidebar-menu -->
     </div>

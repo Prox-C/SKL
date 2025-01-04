@@ -19,7 +19,7 @@ if (isset($_POST['submit-comment'])) {
         // Add the comment
         $comment_id = add_comment($alias, $comment, $post_id);
         // Redirect to the same page with updated URL parameters
-        header("Location: $_SERVER[PHP_SELF]?post_id=$post_id&title=".urlencode($title)."&category=".urlencode($category)."&thumbnail=".urlencode($thumbnail)."&content=".urlencode($content)."&fname=".urlencode($fname)."&lname=".urlencode($lname));
+        header("Location: $_SERVER[PHP_SELF]?post_id=$post_id&title=".urlencode($title)."&category=".urlencode($category)."&thumbnail=".urlencode($thumbnail)."&content=".urlencode($content)."&fname=".urlencode($fname)."&lname=".urlencode($lname)."#comm_sec");
         exit();
     } catch (Exception $e) {
         // Handle the exception
@@ -56,7 +56,8 @@ $comments = get_comments($post_id);
 
 
   <style>
-    .txt {
+
+    * {
         font-family: "Poppins", 'sans-serif';
     }
 
@@ -177,7 +178,7 @@ $comments = get_comments($post_id);
             <h4 class="text-muted display-4" style="font-family: 'Poppins'; font-size: 14px; font-weight: 350; position: relative; bottom: 4px">Category: <?php echo $category; ?></h4>
           </div>
           <div class="col-lg-8" style="margin: 60px 0 60px 0">
-            <img src="<?php echo $thumbnail?>" alt="" style="width: 100%; height: 60vh; object-fit: cover; border-radius: 25px">
+            <img src="<?php echo $thumbnail?>" alt="" style="width: 100%; height: auto; object-fit: cover; border-radius: 25px">
           </div>
           <div class="col-md-8">
             <h5 style="font-size: 16px; font-family: 'Poppins'; text-align: center; font-weight: 300"> By: <strong><?php echo $fname . ' ' . $lname; ?></strong></h3>
@@ -194,7 +195,7 @@ $comments = get_comments($post_id);
 
           <div class="col-md-6">
             <div class="card">
-              <div class="card-header"> <h4 style="font-family: 'Poppins'; position: relative; top: 6px">Share your thoughts</h4></div>
+              <div class="card-header" id="comm_sec"> <h4 style="font-family: 'Poppins'; position: relative; top: 6px">Share your thoughts</h4></div>
               <div class="card-body">
               <form action="" method="post">
               <input type="hidden" name="post_id" value="<?php echo htmlspecialchars($post_id); ?>">
@@ -211,7 +212,7 @@ $comments = get_comments($post_id);
                     <div class="form-group">
                         <textarea name="comment" class="form-control" id="userComments" rows="4" placeholder="Write your thoughts" maxlength="200" required></textarea>
                     </div>
-                    <input name="submit-comment" type="submit" class="btn bg-fuchsia float-right" value="Comment">
+                    <input name="submit-comment" type="submit" class="btn bg-indigo float-right" value="Comment">
                 </form>
               </div>
             </div>

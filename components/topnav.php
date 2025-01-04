@@ -27,7 +27,7 @@
             <a href="home.php" class="nav-link text-dark" style="font-family: 'Poppins';">Home</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link text-dark" style="font-family: 'Poppins';">About</a>
+            <a href="about.php" class="nav-link text-dark" style="font-family: 'Poppins';">About</a>
           </li>
           <li class="nav-item">
             <a href="register.php" class="nav-link text-dark" style="font-family: 'Poppins';">Membership</a>

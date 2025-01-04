@@ -13,36 +13,45 @@ $sessions = getSessions();
   <!-- Navbar -->
   <?php include_once('../components/sidenav.php'); ?>
 
-  <div class="content-wrapper" style="height: 600px">
-    <div class="container" style="padding-top: 30px;">
-        <p>Session Records</p>
-        <table class="table table-sm table-hover text-nowrap">
+  <div class="content-wrapper">
+    <div class="container" style="padding: 30px;">
+      <div class="card">
+        <div class="card-header bg-light">
+          <h3 class="card-title"><b>Session Records</b></h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0" style="max-height: 510px; overflow-y: auto;">
+          <table class="table table-hover text-nowrap">
             <thead style="position: sticky; top: 0; background-color: #f8f9fa; z-index: 1;">
-                <tr>
-                    <th style="width: 10%;">Session ID</th>
-                    <th style="width: 30%;">Email</th>
-                    <th style="width: 20%;">Log Type</th>
-                    <th style="width: 40%;">Date Logged</th>
-                </tr>
+              <tr>
+                <th style="width: 25%;">Session ID</th>
+                <th style="width: 25%;">Email</th>
+                <th style="width: 25%;">Log Type</th>
+                <th style="width: 25%;">Date Logged</th>
+              </tr>
             </thead>
             <tbody>
-                <?php
-                if (!empty($sessions)) {
-                    foreach ($sessions as $session) { ?>
-                        <tr>
-                            <td style="vertical-align: middle;"><?php echo htmlspecialchars($session['session_id']); ?></td>
-                            <td style="vertical-align: middle;"><?php echo htmlspecialchars($session['email']); ?></td>
-                            <td style="vertical-align: middle;"><?php echo htmlspecialchars($session['log']); ?></td>
-                            <td style="vertical-align: middle;"><?php echo htmlspecialchars($session['date_logged']); ?></td>
-                        </tr>
-                    <?php }
-                } else { ?>
+              <?php
+              if (!empty($sessions)) {
+                  foreach ($sessions as $session) { ?>
                     <tr>
-                        <td colspan="4" class="text-center">No session records found</td>
+                      <td style="vertical-align: middle;"><?php echo htmlspecialchars($session['session_id']); ?></td>
+                      <td style="vertical-align: middle;"><?php echo htmlspecialchars($session['email']); ?></td>
+                      <td style="vertical-align: middle;"><?php echo htmlspecialchars($session['log']); ?></td>
+                      <td style="vertical-align: middle;"><?php echo htmlspecialchars($session['date_logged']); ?></td>
                     </tr>
-                <?php } ?>
+                  <?php }
+              } else { ?>
+                <tr>
+                  <td colspan="4" class="text-center">No session records found</td>
+                </tr>
+              <?php } ?>
             </tbody>
-        </table>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
     </div>
   </div>
 </div>
