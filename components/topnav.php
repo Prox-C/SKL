@@ -24,16 +24,16 @@
       <div class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
       <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="home.php" class="nav-link text-dark" style="font-family: 'Poppins';">Home</a>
+            <a href="index.php#hero" class="nav-link text-dark" style="font-family: 'Poppins';">Home</a>
           </li>
           <li class="nav-item">
-            <a href="about.php" class="nav-link text-dark" style="font-family: 'Poppins';">About</a>
+            <a href="index.php#about" class="nav-link text-dark" style="font-family: 'Poppins';">About</a>
           </li>
           <!-- <li class="nav-item">
             <a href="register.php" class="nav-link text-dark" style="font-family: 'Poppins';">Membership</a>
           </li> -->
           <li class="nav-item">
-            <a href="register.php" class="nav-link text-dark" style="font-family: 'Poppins';">Help</a>
+            <a href="home.php" class="nav-link text-dark" style="font-family: 'Poppins';">Blogs</a>
           </li>
         </ul>
         <div class="mainCTA">

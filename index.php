@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <style>
+    * {font-family: 'Poppins'}
     .txt {
         font-family: 'Poppins', "sans-serif";
     }
@@ -109,6 +110,20 @@
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+
+      .bout {
+        text-align: center;
+        height: 440px;
+      }
+      .bout img {
+        height: 55%;
+        width: 100%;
+      }
+
+      .bout p {
+        font-weight: 300;
+      }
+      
   </style>
 
     <!-- Custom styles for this template -->
@@ -126,19 +141,136 @@
 <?php include_once('./components/topnav.php');?>
 
 <div class="wrapper">
-  <div class="content-wrapper bg-light" style="height: 600px; overflow-y: auto;">
-    <div class="container" style="height: 90vh">
-      <div class="row" style="height: 100%">
-        <div class="col-md-8" style="display: flex; flex-direction: column; align-items: flext-start; justify-content: center;">
-          <h1 style="font-size: 86px; font-family: 'Poppins'; font-weight: 750; color:101720"><span id="title"></span><span id="cursor">|</span></h1>
-          <h2 style="font-size: 18px; font-family: 'Poppins'; font-weight: 400; color:#2f2f2f">Whatever it is, we've got it covered.</h2>
-          <a href="home.php" type="button" class="btn bg-indigo btn-lg rounded-pill" style="font-family: 'Poppins'; width: 30%; margin-top: 50px">Get Started</a>
+  <div class="content-wrapper bg-light" >
+    
+    <section id="hero">
+      <div class="container" style="height: 100vh">
+        <div class="row" style="height: 100%">
+          <div class="col-md-8" style="display: flex; flex-direction: column; align-items: flext-start; justify-content: center;">
+            <h1 style="font-size: 86px; font-family: 'Poppins'; font-weight: 750; color:101720"><span id="title"></span><span id="cursor">|</span></h1>
+            <h2 style="font-size: 18px; font-family: 'Poppins'; font-weight: 400; color:#2f2f2f">Whatever it is, we've got it covered.</h2>
+            <a href="home.php" type="button" class="btn bg-indigo btn-lg rounded-pill" style="font-family: 'Poppins'; width: 30%; margin-top: 50px">Get Started</a>
+          </div>
+          <div class="col-md-4" style="display: flex; flex-direction: column; align-items: flext-start; justify-content: center; position: relative; right: 60px">
+            <img src="assets/icons/blogging.svg" alt="" style="width: 120%; height: 100%">
+          </div>
         </div>
-        <div class="col-md-4" style="display: flex; flex-direction: column; align-items: flext-start; justify-content: center; position: relative; right: 60px">
-          <img src="assets/icons/blogging.svg" alt="" style="width: 120%; height: 100%">
+      </div>
+    </section>
+
+    <section id="about" class="bg-indigo">
+  <div class="container" style="height: 100vh;">
+    <div class="row" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+      <div class="col-md-5 d-flex justify-content-center align-items-center" style="height: auto;">
+        <img src="assets/icons/iMac 24 inch.png" alt="" style="height: 550px; position: relative;">
+      </div>
+      <div class="col-md-7" style="padding: 20px;">
+        <h1>About us</h1>
+        <p style="padding: 20px 0 10px 0;">
+          <b>SKL</b> is a web-based blog site where anyone can immerse into the tales of our creative team and be a part of an engaging online community. 
+          It provides a platform for users to channel their inner thoughts and give them freedom to express themselves.
+        </p>
+        <h5>Powered by:</h5>
+        <div>
+          <a href=""> <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white"> </a>
+          <a href=""> <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white"> </a>
+          <a href=""> <img src="https://img.shields.io/badge/MySql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> </a>
+          <a href=""> <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> </a>
+          <a href=""> <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white"> </a>
+          <a href=""> <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white"> </a>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+
+    <section id="help">
+  <div class="container d-flex flex-column align-items-center justify-content-center align-items-center" style="height: 100vh">
+    <div class="row justify-content-center gap-3 mb-4">
+      <div class="col-md-3 bout">
+        <img src="assets/icons/Knowledge-rafiki.png" alt="">
+        <h3 class="text-dark">Explore</h3>
+        <p class="text-dark">Immerse in a world of ideas, stories, and perspectives. Lose yourself in thoughtfully crafted blog posts designed to inform, inspire, and entertain.</p>
+      </div>
+      <div class="col-md-3 bout">
+        <img src="assets/icons/Blogging-pana.png" alt="">
+        <h3 class="text-dark">Express</h3>
+        <p class="text-dark">Share your voice with the world. Whether it’s your personal story, a creative idea, or valuable insights, this is your platform to create and inspire others through your words.</p>
+      </div>
+      <div class="col-md-3 bout">
+        <img src="assets/icons/Status update-pana.png" alt="">
+        <h3 class="text-dark">Engage</h3>
+        <p class="text-dark">Join the conversation! Connect with authors and fellow readers by sharing your thoughts, feedback, and questions in the comments section. </p>
+      </div>
+    </div>
+    <a href="" class="btn rounded-pill btn-lg bg-indigo" style="padding: 10px 30px">Open User Guide
+    <svg style="margin-left: 4px" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="14" fill="#FFFFFF"><path d="M19.5,0H10.5c-.828,0-1.5,.671-1.5,1.5s.672,1.5,1.5,1.5h8.379L.439,21.439c-.586,.585-.586,1.536,0,2.121,.293,.293,.677,.439,1.061,.439s.768-.146,1.061-.439L21,5.121V13.5c0,.829,.672,1.5,1.5,1.5s1.5-.671,1.5-1.5V4.5c0-2.481-2.019-4.5-4.5-4.5Z"/></svg>
+
+    </a>
+  </div>
+</section>
+
+<section id="feedback" class="bg-white">
+  <div class="container d-flex flex-column justify-content-center" style="height: 100vh">
+    <div class="row">
+      <div class="col-md-5">
+        <img src="assets/icons/comment.gif" alt="" style="height: 350px;">
+      </div>
+      <div class="col-md-7 d-flex align-items-center">
+        <div class="card w-100 shadow-sm border-1 rounded-4">
+          <div class="card-body">
+            <form>
+              <!-- Feedback Textarea -->
+              <div class="mb-3">
+                <h1 class="text-dark" style="margin: 20px 0 10px 0">We value your opinion</h1>
+                <textarea class="form-control rounded-3" id="feedbackText" rows="4" placeholder="Share your thoughts and feedback" style="padding: 15px"></textarea>
+              </div>
+
+              <!-- Rating Section -->
+              <div class="mb-3">
+                <label class="form-label text-dark">Rate Our Site</label>
+                <div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="rating" id="rating1" value="1">
+                    <label class="form-check-label text-dark" for="rating1">1</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="rating" id="rating2" value="2">
+                    <label class="form-check-label text-dark" for="rating2">2</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="rating" id="rating3" value="3">
+                    <label class="form-check-label text-dark" for="rating3">3</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="rating" id="rating4" value="4">
+                    <label class="form-check-label text-dark" for="rating4">4</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="rating" id="rating5" value="5">
+                    <label class="form-check-label text-dark" for="rating5">5</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <a type="submit" class="btn bg-indigo float-right rounded-pill" style="padding: 8px 16px">Submit Feedback</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+    
+
+
+
   </div>
 </div>
 
