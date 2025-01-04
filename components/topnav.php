@@ -29,9 +29,9 @@
           <li class="nav-item">
             <a href="about.php" class="nav-link text-dark" style="font-family: 'Poppins';">About</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="register.php" class="nav-link text-dark" style="font-family: 'Poppins';">Membership</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a href="register.php" class="nav-link text-dark" style="font-family: 'Poppins';">Help</a>
           </li>

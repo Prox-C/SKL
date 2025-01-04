@@ -27,9 +27,7 @@ $comments = get_comments($post_id);
 
 
   <style>
-    .txt {
-        font-family: "Poppins", 'sans-serif';
-    }
+    * {font-family: 'Poppins'}
 
     .logotext {
         font-size: 32px; 
@@ -136,10 +134,12 @@ $comments = get_comments($post_id);
 </head>
 <body class="hold-transition layout-top-nav">
   <!-- Nav -->
-  <nav class="main-header navbar navbar-expand-md navbar-dark bg-gray-dark sticky-top" style="height: 10vh;">
+  <nav class="main-header navbar navbar-expand-md navbar-dark bg-light sticky-top" style="height: 10vh;">
     <div class="container">
         <!-- Button to redirect to blogs.php -->
-        <a class="btn btn-outline-light" href="blogs.php">Return</a>
+        <a class="text-secondary" href="blogs.php"> 
+          <svg style="position: relative; bottom: 2px; margin-right: 4px" xmlns="http://www.w3.org/2000/svg" id="Bold" viewBox="0 0 24 24" width="17" fill="#6c757d"><path d="M4.943,5.606,1.024,9.525a3.585,3.585,0,0,0,0,4.95l3.919,3.919a1.5,1.5,0,1,0,2.121-2.121L4.285,13.492l18.25-.023a1.5,1.5,0,0,0,1.5-1.5v0a1.5,1.5,0,0,0-1.5-1.5L4.3,10.492,7.064,7.727A1.5,1.5,0,0,0,4.943,5.606Z"/></svg>
+        Return</a>
 
         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -149,7 +149,10 @@ $comments = get_comments($post_id);
             <!-- Right navbar links -->
             <div class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
                 <div class="mainCTA">
-                    <a href="update_post.php?post_id=<?php echo urlencode($post_id); ?>&title=<?php echo urlencode($title); ?>&category=<?php echo urlencode($category); ?>&thumbnail=<?php echo urlencode($thumbnail); ?>&content=<?php echo urlencode($content); ?>" type="button" class="btn bg-indigo btn-block">Update</a>
+                    <a class="text-secondary" href="update_post.php?post_id=<?php echo urlencode($post_id); ?>&title=<?php echo urlencode($title); ?>&category=<?php echo urlencode($category); ?>&thumbnail=<?php echo urlencode($thumbnail); ?>&content=<?php echo urlencode($content); ?>">
+                    Update
+                    <svg style="position: relative; bottom: 2px; margin-left: 4px" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="17" fill="#6c757d"><path d="m18.813,10c.309,0,.601-.143.79-.387s.255-.562.179-.861c-.311-1.217-.945-2.329-1.833-3.217l-3.485-3.485c-1.322-1.322-3.08-2.05-4.95-2.05h-4.515C2.243,0,0,2.243,0,5v14c0,2.757,2.243,5,5,5h3c.552,0,1-.448,1-1s-.448-1-1-1h-3c-1.654,0-3-1.346-3-3V5c0-1.654,1.346-3,3-3h4.515c.163,0,.325.008.485.023v4.977c0,1.654,1.346,3,3,3h5.813Zm-6.813-3V2.659c.379.218.732.488,1.05.806l3.485,3.485c.314.314.583.668.803,1.05h-4.338c-.551,0-1-.449-1-1Zm11.122,4.879c-1.134-1.134-3.11-1.134-4.243,0l-6.707,6.707c-.755.755-1.172,1.76-1.172,2.829v1.586c0,.552.448,1,1,1h1.586c1.069,0,2.073-.417,2.828-1.172l6.707-6.707c.567-.567.879-1.32.879-2.122s-.312-1.555-.878-2.121Zm-1.415,2.828l-6.708,6.707c-.377.378-.879.586-1.414.586h-.586v-.586c0-.534.208-1.036.586-1.414l6.708-6.707c.377-.378,1.036-.378,1.414,0,.189.188.293.439.293.707s-.104.518-.293.707Z"/></svg>
+                    </a>
                 </div>
                 <!-- <div class="deleteCTA">
                     <input name="delete_post" type="submit" class="btn bg-danger btn-block" style="margin-left: 10px" value="Delete">
@@ -162,27 +165,24 @@ $comments = get_comments($post_id);
 <div class="content-wrapper bg-light" style="height: 600px; background: red; padding-top: 50px; overflow-y: auto">
   
 
-  <div class="container container-fluid bg-light">
-    <div class="container bg-light" style="padding-top: 50px; padding-bottom: 30px">
-      <div class="container border rounded overflow-hidden shadow-sm h-md-150 bg-white">
-        <div class="row">
-          <div class="col-lg-4">
-            <img src="../<?php echo $thumbnail?>" alt="" style="width: 100%; height: 200px; object-fit: cover">
+<div class="container container-fluid bg-light"> 
+    <div class="container" style="padding-top: 50px; padding-bottom: 30px">
+      <div class="" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
+         <div class="col-lg-8" style="padding: 10px 0 10px 10px">
+            <h2 class="display-3" style="font-family: 'Poppins'; font-weight: 500; font-size: 44px; height: 85%" ><?php echo $title; ?></h2>
+            <h4 class="text-muted display-4" style="font-family: 'Poppins'; font-size: 14px; font-weight: 350; position: relative; bottom: 4px">Category: <?php echo $category; ?></h4>
           </div>
-          <div class="col-lg-8" style="padding: 10px 0 10px 10px">
-            <h2 class="display-3" style="font-family: 'Poppins'; font-weight: 750; font-size: 56px; height: 85%" ><?php echo $title; ?></h2>
-            <h4 class="text-muted display-4" style="font-size: 18px; font-weight: 750; position: relative; bottom: 15px"><?php echo $category; ?></h4>
+          <div class="col-lg-8" style="margin: 60px 0 60px 0">
+            <img src="../<?php echo $thumbnail?>" alt="" style="width: 100%; height: auto; object-fit: cover; border-radius: 25px">
           </div>
-        </div>
+          <div class="col-md-8">
+            <h5 style="font-size: 16px; font-family: 'Poppins'; text-align: center; font-weight: 300"> By: <strong>You</strong></h3>
+              <p class="" style="letter-spacing: 0.5px; color: #101720; font-size: 16px; line-height: 30px; word-spacing: 5px; white-space: pre-line; font-weight: 350; font-family: 'Poppins'; ">
+              <?php echo $content?>
+              </p>
+            </div>  
       </div>
-      
     </div>
-
-    <div>
-    <h5 class="text-indigo" style="margin: 20px 0 20px 0; font-size: 24px; font-family: 'Poppins'; text-align: center"> By: <strong>You</strong></h3>
-      <p class="text-black" style="font-size: 22px; line-height: 40px; word-spacing: 6px; white-space: pre-line; padding: 0 100px 50px 100px; font-weight: 400; font-family: 'Poppins'">
-       <?php echo $content?>
-      </p>
       <div class="comment container">
         <div class="row">
           <div class="col-md-3">

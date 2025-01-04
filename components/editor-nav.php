@@ -26,6 +26,10 @@
 
 
   <style>
+
+        * {
+          font-family: 'Poppins';
+        }
         .logotext {
             font-size: 32px; 
             font-weight: 600; 
@@ -55,11 +59,11 @@
             </div>
           </div>
 
-<nav class="main-header navbar navbar-expand bg-indigo navbar-dark" style="padding-top: 16px">
+<nav class="main-header navbar navbar-expand bg-light navbar-dark" style="padding-top: 16px">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        <a class="nav-link text-dark" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
     </ul>
 
@@ -118,7 +122,7 @@
             <p style="margin-left: 6px; font-family: 'Poppins'"> Drafts  </p>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="./categories.php" class="nav-link">
             <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24"  height="18" style="position: relative; bottom: 3px;" fill="#dedede">
                 <path d="m0,3v7h10V0H3C1.346,0,0,1.346,0,3Zm22,0c0-1.654-1.346-3-3-3h-7v10h10V3ZM0,19c0,1.654,1.346,3,3,3h7v-10H0v7Zm23.979,3.564l-2.812-2.812c.524-.791.833-1.736.833-2.753,0-2.757-2.243-5-5-5s-5,2.243-5,5,2.243,5,5,5c1.017,0,1.962-.309,2.753-.833l2.812,2.812,1.414-1.414Z"/>
@@ -126,7 +130,7 @@
 
             <p style="margin-left: 6px; font-family: 'Poppins'"> Categories  </p>
             </a>
-          </li>
+          </li> -->
 
           
          
