@@ -29,9 +29,12 @@
           <li class="nav-item">
             <a href="index.php#about" class="nav-link text-dark" style="font-family: 'Poppins';">About</a>
           </li>
-          <!-- <li class="nav-item">
-            <a href="register.php" class="nav-link text-dark" style="font-family: 'Poppins';">Membership</a>
-          </li> -->
+           <li class="nav-item">
+            <a href="index.php#help" class="nav-link text-dark" style="font-family: 'Poppins';">Guide</a>
+          </li>
+           <li class="nav-item">
+            <a href="index.php#feedback" class="nav-link text-dark" style="font-family: 'Poppins';">Feedback</a>
+          </li>
           <li class="nav-item">
             <a href="home.php" class="nav-link text-dark" style="font-family: 'Poppins';">Blogs</a>
           </li>

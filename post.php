@@ -194,7 +194,7 @@ $comments = get_comments($post_id);
         <div class="row">
 
           <div class="col-md-6">
-            <div class="card">
+            <div class="card rounded-3">
               <div class="card-header" id="comm_sec"> <h4 style="font-family: 'Poppins'; position: relative; top: 6px">Share your thoughts</h4></div>
               <div class="card-body">
               <form action="" method="post">
@@ -212,14 +212,14 @@ $comments = get_comments($post_id);
                     <div class="form-group">
                         <textarea name="comment" class="form-control" id="userComments" rows="4" placeholder="Write your thoughts" maxlength="200" required></textarea>
                     </div>
-                    <input name="submit-comment" type="submit" class="btn bg-indigo float-right" value="Comment">
+                    <input name="submit-comment" type="submit" class="btn bg-indigo float-right rounded-3" style="padding: 8px 16px" value="Comment">
                 </form>
               </div>
             </div>
             </div>
 
           <div class="col-md-6">
-            <div class="card">
+            <div class="card rounded-3">
                 <div class="card-header">
                   <h3 class="card-title" style="font-family: 'Poppins'">
                     Comments(<?php echo count($comments); ?>)

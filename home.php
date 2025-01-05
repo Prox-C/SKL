@@ -139,7 +139,7 @@
                 <div class="row">
                     <div class="col-md-10 offset-md-1">
                         <div class="form-group ">
-                            <div class="input-group input-group-lg rounded-lg">
+                            <div class="input-group input-group-lg rounded-5">
                                 <input type="search" id="searchQuery" class="form-control form-control-lg" placeholder="Browse" style="font-weight: 400; font-family: 'Poppins'">
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-lg bg-indigo">
@@ -163,10 +163,10 @@
           $posts = renderAllPublishedBlogs();
           foreach ($posts as $post) {
           ?>
-          <div class="blog-item row border rounded-lg overflow-hidden h-md-300 position-relative col-md-12 bg-white" style="padding: 15px 15px 15px 10px; margin: 0 0 20px 2px;">
+          <div class="blog-item row border rounded-4 overflow-hidden h-md-300 position-relative col-md-12 bg-white" style="padding: 15px 15px 15px 10px; margin: 0 0 20px 2px;">
             
             <div class="col">
-                <img src="<?php echo htmlspecialchars($post['thumbnail']); ?>" alt="" class="float-right rounded-lg" width="100%" height="100%" style="border-radius: 4px: object-fit: cover">
+                <img src="<?php echo htmlspecialchars($post['thumbnail']); ?>" alt="" class="float-right rounded-3" width="100%" height="100%" style="border-radius: 4px: object-fit: cover">
             </div>
             <div class="col-md-7 d-flex flex-column" style="padding: 10px 30px 10px 30px">
               <p style="font-family: 'Poppins'; font-weight: 250; font-size: 14px">In <b><?php echo htmlspecialchars($post['category_name']); ?></b>, by <b><?php echo htmlspecialchars($post['fname'] . ' ' . $post['lname']); ?></b></p>

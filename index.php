@@ -1,3 +1,29 @@
+<?php
+require_once('functions.php');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $feedbackText = $_POST['feedbackText'] ?? '';
+    $rating = $_POST['rating'] ?? '';
+
+    // Validate and sanitize inputs
+    $feedbackText = trim($feedbackText);
+    $rating = filter_var($rating, FILTER_VALIDATE_INT);
+
+    if (!empty($feedbackText) && $rating) {
+        $insertedId = insertFeedback($feedbackText, $rating);
+
+        if ($insertedId) {
+            // echo "<div class='alert alert-success'>Thank you for your feedback! Your feedback ID is $insertedId.</div>";
+        } else {
+            // echo "<div class='alert alert-danger'>There was an issue submitting your feedback. Please try again.</div>";
+        }
+    } else {
+        echo "<div class='alert alert-warning'>Please fill in all fields and provide a valid rating.</div>";
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -152,7 +178,7 @@
             <a href="home.php" type="button" class="btn bg-indigo btn-lg rounded-pill" style="font-family: 'Poppins'; width: 30%; margin-top: 50px">Get Started</a>
           </div>
           <div class="col-md-4" style="display: flex; flex-direction: column; align-items: flext-start; justify-content: center; position: relative; right: 60px">
-            <img src="assets/icons/blogging.svg" alt="" style="width: 120%; height: 100%">
+            <img src="assets/icons/Blogging-amico.svg" alt="" style="width: 120%; height: 100%">
           </div>
         </div>
       </div>
@@ -220,11 +246,11 @@
       <div class="col-md-7 d-flex align-items-center">
         <div class="card w-100 shadow-sm border-1 rounded-4">
           <div class="card-body">
-            <form>
+          <form method="POST" action="index.php#feedback">
               <!-- Feedback Textarea -->
               <div class="mb-3">
-                <h1 class="text-dark" style="margin: 20px 0 10px 0">We value your opinion</h1>
-                <textarea class="form-control rounded-3" id="feedbackText" rows="4" placeholder="Share your thoughts and feedback" style="padding: 15px"></textarea>
+                <h2 class="text-dark" style="margin: 20px 0 10px 0">We value your opinion</h2>
+                <textarea required class="form-control rounded-3" id="feedbackText" name="feedbackText" rows="4" placeholder="Share your thoughts and feedback" style="padding: 15px"></textarea>
               </div>
 
               <!-- Rating Section -->
@@ -255,8 +281,11 @@
               </div>
 
               <!-- Submit Button -->
-              <a type="submit" class="btn bg-indigo float-right rounded-pill" style="padding: 8px 16px">Submit Feedback</a>
+              <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Submit Feedback</button>
+              </div>
             </form>
+
           </div>
         </div>
       </div>

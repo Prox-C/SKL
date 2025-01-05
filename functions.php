@@ -686,6 +686,47 @@ function getSessions()
     }
 }
 
+function insertFeedback($content, $rating) 
+{
+    try {
+        $conn = connect();
+
+        // Validate rating (assuming it should be between 1 and 5)
+        if (!is_int($rating) || $rating < 1 || $rating > 5) {
+            throw new InvalidArgumentException("Invalid rating. Must be an integer between 1 and 5.");
+        }
+
+        // Prepare the query
+        $query = $conn->prepare("INSERT INTO `feedbacks` (content, rating) VALUES (:content, :rating)");
+
+        // Bind parameters
+        $query->bindParam(':content', $content, PDO::PARAM_STR);
+        $query->bindParam(':rating', $rating, PDO::PARAM_INT);
+
+        // Execute the query
+        $response = $query->execute();
+
+        if ($response) {
+            $id = $conn->lastInsertId();
+            return $id;
+        } else {
+            return false;
+        }
+    } catch (PDOException $e) {
+        // Handle database errors
+        error_log("Database Error in insertFeedback: " . $e->getMessage());
+        return false;
+    } catch (InvalidArgumentException $e) {
+        // Handle validation errors
+        error_log("Validation Error in insertFeedback: " . $e->getMessage());
+        return false;
+    } finally {
+        // Cleanup
+        $conn = null;
+    }
+}
+
+
 
 
 
