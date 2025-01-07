@@ -175,7 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <div class="col-md-8" style="display: flex; flex-direction: column; align-items: flext-start; justify-content: center;">
             <h1 style="font-size: 86px; font-family: 'Poppins'; font-weight: 750; color:101720"><span id="title"></span><span id="cursor">|</span></h1>
             <h2 style="font-size: 18px; font-family: 'Poppins'; font-weight: 400; color:#2f2f2f">Whatever it is, we've got it covered.</h2>
-            <a href="home.php" type="button" class="btn bg-indigo btn-lg rounded-pill" style="font-family: 'Poppins'; width: 30%; margin-top: 50px">Get Started</a>
+            <a href="home.php" type="button" class="btn bg-indigo btn-lg rounded-pill" style="font-family: 'Poppins'; width: 30%; margin-top: 50px; padding: 8px 16px">Get Started</a>
           </div>
           <div class="col-md-4" style="display: flex; flex-direction: column; align-items: flext-start; justify-content: center; position: relative; right: 60px">
             <img src="assets/icons/Blogging-amico.svg" alt="" style="width: 120%; height: 100%">
@@ -230,15 +230,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p class="text-dark">Join the conversation! Connect with authors and fellow readers by sharing your thoughts, feedback, and questions in the comments section. </p>
       </div>
     </div>
-    <a href="" class="btn rounded-pill btn-lg bg-indigo" style="padding: 10px 30px">Open User Guide
+    <a href="manual.html" target="_blank" class="btn rounded-pill btn-lg bg-indigo" style="padding: 10px 30px">Open User Guide
     <svg style="margin-left: 4px" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="14" fill="#FFFFFF"><path d="M19.5,0H10.5c-.828,0-1.5,.671-1.5,1.5s.672,1.5,1.5,1.5h8.379L.439,21.439c-.586,.585-.586,1.536,0,2.121,.293,.293,.677,.439,1.061,.439s.768-.146,1.061-.439L21,5.121V13.5c0,.829,.672,1.5,1.5,1.5s1.5-.671,1.5-1.5V4.5c0-2.481-2.019-4.5-4.5-4.5Z"/></svg>
 
     </a>
   </div>
 </section>
 
-<section id="feedback" class="bg-white">
-  <div class="container d-flex flex-column justify-content-center" style="height: 100vh">
+<section class="bg-white">
+  <div class="container d-flex flex-column justify-content-center" id="feedback" style="height: 100vh">
     <div class="row">
       <div class="col-md-5">
         <img src="assets/icons/comment.gif" alt="" style="height: 350px;">
@@ -282,7 +282,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
               <!-- Submit Button -->
               <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                <button type="submit" class="btn bg-indigo rounded-4" style="padding: 8px 16px">Submit
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="14" fill="#FFFFFF" style="margin-left: 4px"><path d="m21.697,8.382L4.566.324C3.396-.243,2.021-.049,1.056.82.087,1.692-.25,3.048.197,4.272c.024.064,4.106,7.734,4.106,7.734,0,0-4.005,7.664-4.028,7.727-.445,1.226-.105,2.58.865,3.45.601.538,1.358.816,2.121.816.47,0,.941-.105,1.379-.321l17.058-8.053c1.421-.667,2.303-2.056,2.302-3.625-.002-1.569-.885-2.956-2.303-3.619ZM3.001,3.184c-.004-.038.007-.084.062-.133.088-.079.157-.047.195-.027.007.004.015.007.021.011l15.874,7.466H6.9L3.001,3.184Zm.336,17.793c-.036.019-.106.053-.193-.026-.056-.05-.066-.098-.062-.136l3.827-7.314h12.266l-15.837,7.477Z"/></svg>
+                </button>
               </div>
             </form>
 

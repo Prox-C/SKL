@@ -686,6 +686,7 @@ function getSessions()
     }
 }
 
+//FEEDBACK
 function insertFeedback($content, $rating) 
 {
     try {
@@ -725,6 +726,45 @@ function insertFeedback($content, $rating)
         $conn = null;
     }
 }
+
+function countFeedbacks()
+{
+    $conn = connect(); 
+
+	$query = $conn->prepare("SELECT COUNT(*) AS no_of_fb FROM feedbacks");  
+	$query->execute();
+	$result = $query->fetch(PDO::FETCH_ASSOC);
+    
+	return $result['no_of_fb'];
+}
+
+function getFeedbacks() 
+{
+    try {
+        $conn = connect();
+
+        // Prepare the query to fetch feedbacks
+        $query = $conn->prepare("SELECT * FROM feedbacks;");
+
+        // Execute the query
+        $query->execute();
+
+        // Fetch all feedback records
+        $feedbacks = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        return $feedbacks;
+    } catch (PDOException $e) {
+        // Handle database errors
+        error_log("Database Error in getFeedbacks: " . $e->getMessage());
+        return [];
+    } finally {
+        // Cleanup
+        $conn = null;
+    }
+}
+
+
+
 
 
 

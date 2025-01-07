@@ -40,7 +40,7 @@
           </li>
         </ul>
         <div class="mainCTA">
-            <a href="./login.php" type="button" class="btn bg-indigo btn-block rounded-pill" style="font-family: 'Poppins'">Sign in</a>
+            <a href="./login.php" type="button" class="btn bg-indigo btn-block rounded-pill" style="padding: 8px 16px; font-family: 'Poppins'">Sign In</a>
         </div>
       </div>
     </div>

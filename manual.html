@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SKL | User Guide</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+  <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { font-family: 'Poppins', sans-serif; }
+
+    .logotext {
+      font-size: 32px;
+      font-weight: 800; 
+      color: #101720;
+    }
+
+    body, html {
+      height: 100%;
+      margin: 0;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+    }
+
+    .content-wrapper {
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .user-guide {
+      flex: 1;
+      overflow-y: auto;
+      padding: 60px;
+    }
+
+    .quick-links {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      width: 25%;
+      padding: 30px;
+      background: #f8f9fa;
+      border-left: 1px solid #101720;
+      overflow-y: auto;
+    }
+
+    .quick-links h1 {
+      margin-bottom: 30px;
+    }
+
+    .quick-links h2 {
+        text-align: center;
+    }
+
+    h1, h2, h4 {
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .user-guide h2 {
+      margin-bottom: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <!-- Quick Links -->
+  <div class="quick-links">
+    <h2 >Quick Links</h2>
+    <h6>Introduction</h6>
+    <ul>
+      <li><a href="#intro">System Overview</a></li>
+      <li><a href="#intro">System Requirements</a></li>
+      <li><a href="#intro">System Users</a></li>
+    </ul>
+    <h6>Visitor</h6>
+    <ul>
+      <li><a href="#visitor">Content & Browsing</a></li>
+      <li><a href="#visitor">Post Engagement</a></li>
+      <li><a href="#visitor">User Feedback</a></li>
+    </ul>
+    <h6>Editor</h6>
+    <ul>
+      <li><a href="#editor">Content Management</a></li>
+      <li><a href="#editor">Audience Engagement</a></li>
+    </ul>
+    <h6>Admin</h6>
+    <ul>
+      <li><a href="#admin">System Administration</a></li>
+      <li><a href="#admin">User Management</a></li>
+      <li><a href="#admin">Content Organization</a></li>
+      <li><a href="#admin">Feedback Collection</a></li>
+      <li><a href="#admin">Audit Trailing</a></li>
+    </ul>
+  </div>
+
+  <!-- User Guide -->
+  <div class="content-wrapper">
+    <div class="user-guide">
+      <h1 style="text-align: center; margin: 100px 0; font-size: 80px;">System User Guide</h1>
+      <div id="intro">
+        <h2>Introduction</h2>
+        <h4>System Overview</h4>
+        <p>The system is a comprehensive platform designed to streamline content management, user engagement, and administrative operations, offering tailored functionality for visitors, editors, and administrators.</p>
+        <h4>System Requirements</h4>
+        <p>The platform requires a modern web browser, internet connectivity, and a device with basic hardware capabilities to ensure smooth performance and usability across all features.</p>
+        <h4>System Users</h4>
+        <p>The system serves three main user types: visitors, editors, and administrators, each with distinct roles and access levels to optimize functionality and content interaction.</p>
+      </div>
+
+      <div id="visitor">
+        <h2>Visitor</h2>
+        <h4>Content & Browsing</h4>
+        <p>Visitors can explore a wide range of content, navigate seamlessly through categories, and access relevant posts based on their interests.</p>
+        <h4>Post Engagement</h4>
+        <p>Visitors can engage with posts through likes, shares, and comments, fostering a sense of interaction and participation within the platform.</p>
+        <h4>User Feedback</h4>
+        <p>Visitors have the ability to submit feedback, report issues, or suggest improvements, contributing to the platform’s continuous enhancement.</p>
+      </div>
+
+      <div id="editor">
+        <h2>Editor</h2>
+        <h4>Content Management</h4>
+        <p>Editors can create, edit, and organize content efficiently, ensuring accuracy and relevance while maintaining the platform’s quality standards.</p>
+        <h4>Audience Engagement</h4>
+        <p>Editors can monitor audience responses, interact with user comments, and implement strategies to boost engagement and reach.</p>
+      </div>
+
+      <div id="admin">
+        <h2>Admin</h2>
+        <h4>System Administration</h4>
+        <p>Administrators oversee the overall system functionality, managing configurations and ensuring that all modules run smoothly and securely.</p>
+        <h4>User Management</h4>
+        <p>Administrators can manage user accounts, assign roles, and enforce access control policies to safeguard the platform’s integrity.</p>
+        <h4>Content Organization</h4>
+        <p>Administrators can categorize and structure content for optimal discoverability, ensuring that users can easily find relevant information.</p>
+        <h4>Feedback Collection</h4>
+        <p>Administrators gather and analyze feedback from visitors and editors to identify areas for improvement and prioritize system updates.</p>
+        <h4>Audit Trailing</h4>
+        <p>Administrators can track all system activities through detailed audit trails, enhancing accountability and simplifying issue resolution.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+<!-- REQUIRED SCRIPTS -->
+ 
+<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+<!-- jQuery -->
+<script src="assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="assets/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="assets/dist/js/demo.js"></script>
+<script src="main.js"></script>
+

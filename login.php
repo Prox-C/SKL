@@ -168,7 +168,7 @@
         Remember me
       </label>
     </div>
-    <input name="login" value="Login" style="font-family: 'Poppins';" class="btn btn-primary w-100 py-2 btn rounded-pill bg-indigo" type="submit"></input>
+    <input name="login" value="Login" style="font-family: 'Poppins'; padding: 8px 16px" class="btn btn-lg bg-indigo w-100 py-2 btn rounded-pill bg-indigo" type="submit"></input>
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2023- 2024</p>
   </form>
   </div>
