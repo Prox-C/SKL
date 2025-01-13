@@ -2,9 +2,7 @@
 if (isset($_POST['sign-out'])) {
   insertSession($_SESSION['active_user_email'], 'out');
   // Clear all session variables
-  session_unset();
-  // Destroy the session
-  session_destroy();
+  
   // Redirect to the login page or home page
   header("Location: ../index.php");
   exit; // Stop further execution of the script after redirection

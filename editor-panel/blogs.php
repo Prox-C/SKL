@@ -52,7 +52,7 @@ if (isset($_POST['compose'])) {
         
             <div class="bloglist" style="padding-top: 50px">
                 <?php
-                $posts = renderAllPublishedBlogs(); // Adjust this function as needed
+                $posts = renderBlogs($_SESSION['active_user_id']); // Adjust this function as needed
                 foreach ($posts as $post) {
                 ?>
                 <div class="blog-item row border rounded-lg overflow-hidden h-md-300 position-relative col-md-12 bg-white" style="padding: 15px 15px 15px 10px; margin: 0 0 20px 2px;">

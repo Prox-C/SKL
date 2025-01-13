@@ -16,30 +16,35 @@ if(isset($_POST['login'])) {
 
     $user = auth($username); 
 
-    if(!empty($user)) {
+    if(!empty($user)) 
+    {
         // Use password_verify to compare the input password with the stored hashed password
-        if (password_verify($password, $user['password'])) {
-    // Set session variables on successful login
-    $_SESSION['active_user'] = $user['fname'];
-    $_SESSION['active_user_id'] = $user['id'];
-    $_SESSION['active_user_email'] = $user['email'];
-    insertSession($_SESSION['active_user_email'], 'in');
+        if (password_verify($password, $user['password'])) 
+        {
+            // Set session variables on successful login
+            $_SESSION['active_user'] = $user['fname'];
+            $_SESSION['active_user_id'] = $user['id'];
+            $_SESSION['active_user_email'] = $user['email'];
+            insertSession($_SESSION['active_user_email'], 'in');
 
-    // Redirect based on user role
-    if ($user['role'] == "admin") {
-        echo"<script>location.href='admin-panel/admin.php'</script>";
-    } else if ($user['role'] == "editor") {  
-        echo"<script>location.href='editor-panel/editor.php'</script>";
-    }
-    
-} else {
-    echo"<script>alert('Wrong Password');</script>";
-    echo"<script>location.href='login.php'</script>";
-}
+            // Redirect based on user role
+            if ($user['role'] == "admin") {
+                echo"<script>location.href='admin-panel/admin.php'</script>";
+            } else if ($user['role'] == "editor") {  
+                echo"<script>location.href='editor-panel/editor.php'</script>";
+            }
+        
+        } else 
+        {
+            echo"<script>alert('Wrong Password');</script>";
+            echo"<script>location.href='login.php'</script>";
+        }
 
-    } else {
+     } else 
+    {
         echo"<script>alert('Account does not exist');</script>";
         echo"<script>location.href='login.php'</script>";
     }
+    
 }
 ?>

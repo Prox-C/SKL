@@ -10,31 +10,29 @@
   $_SESSION['total_users'] = count_users();
 
   if (isset($_POST['delete'])) 
-  {
-      $delete_account = $_POST['delete_record'];
-      $current_user_id = $_SESSION['active_user_id']; // Assuming you store user ID in session
-      $result = delete_user($delete_account, $current_user_id);
-  
-      if ($result === true) 
-      {
-          echo "<script>location.href='members.php'</script>";
-          exit();
-      } 
-      elseif ($result === "error") 
-      {
-          echo "<script>alert('This account can\'t be deleted');</script>";
-      } 
-      elseif ($result === "self_delete") 
-      {
-          echo "<script>alert('You can\\'t delete your own account');</script>";
-      } 
-      else 
-      {
-          // Show an error message
-          echo "Error deleting record.";
-      }
-  }
-  
+{
+    $delete_account = $_POST['delete_record'];
+    $current_user_id = $_SESSION['active_user_id']; // Assuming you store user ID in session
+    $result = delete_user($delete_account, $current_user_id);
+
+    if ($result === "success: user deleted") 
+    {
+        echo "<script>alert('User deleted successfully'); location.href='members.php';</script>";
+        exit();
+    } 
+    elseif (strpos($result, "error:") === 0) 
+    {
+        // Extract the error message and show it in the alert box
+        $error_message = str_replace("error: ", "", $result);
+        echo "<script>alert('{$error_message}');</script>";
+    } 
+    else 
+    {
+        // Default case for unexpected results
+        echo "<script>alert('Unexpected error occurred');</script>";
+    }
+}
+
 
   if (isset($_POST['register'])) 
   {

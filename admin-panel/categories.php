@@ -28,13 +28,19 @@
     echo"<script>location.href='categories.php'</script>";
   }
 
-  if(isset($_POST['delete'])) 
-  {
+  if (isset($_POST['delete'])) {
     $id = $_POST['delete_category'];
 
-    delete_category($id);
-    echo"<script>location.href='categories.php'</script>";
-  }
+    // Call the delete_category function and capture the response
+    $response = delete_category($id);
+
+    // Use JavaScript to display the response in an alert box
+    echo "<script>
+        alert('$response');
+        location.href='categories.php';
+    </script>";
+}
+
 ?>
 <div class="modal fade" id="add-category" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="TRUE">
     <div class="modal-dialog modal-dialog-centered" role="document">

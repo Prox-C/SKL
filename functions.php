@@ -116,51 +116,74 @@ function update_user($id, $email, $fname, $lname, $password)
         return FALSE;
     }
 }
-function delete_user($id, $current_user_id) 
-{
+function delete_user($id, $current_user_id) {
     if ($id == 1) {
-        return "error"; // Return a custom error message or code
+        return "error: cannot delete admin user with ID 1";
     }
 
     if ($id == $current_user_id) {
-        return "self_delete"; // Return a code indicating that the user is trying to delete their own account
+        return "error: cannot delete the currently logged-in user";
     }
-    
+
     $conn = connect();
 
-    // Check the role of the user
-    $query = $conn->prepare("SELECT role FROM user WHERE id = :id");
-    $query->bindParam(':id', $id);
-    $query->execute();
-    $user = $query->fetch(PDO::FETCH_ASSOC);
+    try {
+        $conn->beginTransaction();
 
-    // If the user is an editor, delete associated blogs and comments
-    if ($user['role'] === "editor") {
-        // Delete editor blogs associated with the user
+        // Disable foreign key checks to allow the deletion
+        $conn->exec("SET FOREIGN_KEY_CHECKS = 0;");
+
+        // Check if the user exists
+        $query = $conn->prepare("SELECT id FROM user WHERE id = :id");
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+        $user = $query->fetch(PDO::FETCH_ASSOC);
+
+        if (!$user) {
+            $conn->rollBack();
+            return "error: user not found";
+        }
+
+        // Check if the user has any associated posts
+        $query = $conn->prepare("SELECT COUNT(*) as post_count FROM posts WHERE post_id IN (SELECT post_id FROM editor_blog WHERE id = :id)");
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+        $postCount = $query->fetch(PDO::FETCH_ASSOC)['post_count'];
+
+        if ($postCount > 0) {
+            $conn->rollBack();
+            return "error: cannot delete user with associated posts";
+        }
+
+        // Delete references in `users_audit`
+        $query = $conn->prepare("DELETE FROM users_audit WHERE id = :id");
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+
+        // Delete references in `editor_blog`
         $query = $conn->prepare("DELETE FROM editor_blog WHERE id = :id");
-        $query->bindParam(':id', $id);
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->execute();
 
-        // Delete blogs associated with the user
-        $query = $conn->prepare("DELETE FROM posts WHERE post_id IN (SELECT post_id FROM editor_blog WHERE id = :id)");
-        $query->bindParam(':id', $id);
+        // Delete the user from the `user` table
+        $query = $conn->prepare("DELETE FROM user WHERE id = :id");
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->execute();
 
-        // Delete comments associated with the posts of the user
-        $query = $conn->prepare("DELETE FROM comments WHERE id IN (SELECT id FROM comment_blog WHERE post_id IN (SELECT post_id FROM editor_blog WHERE id = :id))");
-        $query->bindParam(':id', $id);
-        $query->execute();
+        // Re-enable foreign key checks
+        $conn->exec("SET FOREIGN_KEY_CHECKS = 1;");
+
+        $conn->commit();
+        return "success: user deleted";
+    } catch (Exception $e) {
+        $conn->rollBack();
+        return "error: " . $e->getMessage();
+    } finally {
+        $conn = null; // Close the connection
     }
-
-    // Delete the user regardless of role
-    $query = $conn->prepare("DELETE FROM user WHERE id = :id");
-    $query->bindParam(':id', $id);
-    $response = $query->execute();
-
-    $conn = null; 
-
-    return $response; 
 }
+
+
 function count_users()
 {
     $conn = connect(); 
@@ -236,19 +259,31 @@ function update_category($id, $category_name)
 		return FALSE;
 	}  
 }
-function delete_category($id) 
-{
+function delete_category($id) {
     $conn = connect();
 
-    $query = $conn->prepare("DELETE FROM `categories` WHERE category_id = :id");
-    $query->bindParam(':id', $id);
+    // Step 1: Check if the category is in use by any posts
+    $query = $conn->prepare("SELECT COUNT(*) AS post_count FROM posts WHERE category_id = :id");
+    $query->bindParam(':id', $id, PDO::PARAM_INT);
+    $query->execute();
+    $postCount = $query->fetch(PDO::FETCH_ASSOC)['post_count'];
 
+    // Step 2: If category is in use, return an error message
+    if ($postCount > 0) {
+        $conn = null;
+        return "Deletion denied: Category in use.";
+    }
+
+    // Step 3: Proceed with the deletion if category is not in use
+    $query = $conn->prepare("DELETE FROM categories WHERE category_id = :id");
+    $query->bindParam(':id', $id, PDO::PARAM_INT);
     $response = $query->execute();
 
     $conn = null; 
 
-    return $response; 
+    return $response ? "Category successfully deleted!" : "error: failed to delete category";
 }
+
 function count_categories()
 {
     $conn = connect(); 
@@ -345,14 +380,7 @@ function renderAllPublishedBlogs()
     $conn = connect(); // Assuming you have a function named connect() that returns a PDO connection
 
     // Prepare the SQL statement
-    $sql = "SELECT posts.post_id, posts.title, posts.thumbnail, posts.content, categories.category_name,
-                   user.fname, user.lname
-            FROM posts
-            INNER JOIN categories ON posts.category_id = categories.category_id
-            INNER JOIN editor_blog ON posts.post_id = editor_blog.post_id
-            INNER JOIN user ON editor_blog.id = user.id
-            WHERE posts.status = 0
-            ORDER BY posts.post_id DESC";
+    $sql = "SELECT *  FROM posts_info";
 
     // Prepare the statement
     $query = $conn->prepare($sql);
@@ -762,6 +790,85 @@ function getFeedbacks()
         $conn = null;
     }
 }
+
+function getAverageRating()
+{
+    $conn = connect(); 
+
+    // Prepare the query to calculate the average rating
+    $query = $conn->prepare("SELECT AVG(rating) AS average_rating FROM feedbacks");  
+    $query->execute();
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+
+    // Return the average rating, rounded to two decimal places
+    return round($result['average_rating']/5 * 100, 2);
+}
+
+function getTopCategoriesWithMostPosts() {
+    // Connect to the database
+    $conn = connect(); // Assuming you have a function named connect() that returns a PDO connection
+
+    // Prepare the SQL query to get the top 5 categories with the most posts along with their names
+    $sql = "
+        SELECT category_name, COUNT(posts.post_id) AS post_count
+        FROM posts
+        JOIN categories ON posts.category_id = categories.category_id
+        GROUP BY categories.category_name
+        ORDER BY post_count DESC
+        LIMIT 5
+    ";
+
+    // Prepare the statement
+    $query = $conn->prepare($sql);
+
+    // Execute the statement
+    $query->execute();
+
+    // Fetch all rows into an associative array
+    $categories = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    // Close the database connection
+    $conn = null;
+
+    return $categories;
+}
+
+function getTopEditorsWithMostPosts() {
+    // Connect to the database
+    $conn = connect(); // Assuming you have a function named connect() that returns a PDO connection
+
+    // SQL query to get the top 3 editors with the highest number of posts
+    $sql = "
+        SELECT 
+            user.fname AS first_name, 
+            user.lname AS last_name, 
+            COUNT(editor_blog.post_id) AS post_count
+        FROM user
+        JOIN editor_blog ON user.id = editor_blog.id
+        WHERE user.role = 'Editor'
+        GROUP BY user.id, user.fname, user.lname
+        ORDER BY post_count DESC
+        LIMIT 3
+    ";
+
+    // Prepare the statement
+    $query = $conn->prepare($sql);
+
+    // Execute the statement
+    $query->execute();
+
+    // Fetch all rows into an associative array
+    $editors = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    // Close the database connection
+    $conn = null;
+
+    return $editors;
+}
+
+
+
+
 
 
 
