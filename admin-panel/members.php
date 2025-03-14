@@ -109,7 +109,7 @@
                   </div>
                   <div class="form-group">  
                     <label for="password">Password</label>
-                    <input name="password" type="password" class="form-control" id="password" placeholder="A-Z, 1-9, No special characters" required>
+                    <input name="password" type="password" class="form-control" id="password" placeholder="A-Z, 1-9, No special characters" required minlength="8">
                   </div>
                   <div class="form-group">
                     <span>
@@ -268,7 +268,7 @@
                                                   </div>
                                                   <div class="form-group">  
                                                     <label for="password">Password</label>
-                                                    <input name="xpassword" type="password" class="form-control" id="password" placeholder="Enter New Password" required>
+                                                    <input name="xpassword" type="password" class="form-control" id="password" placeholder="Enter New Password" required minlength="8">
                                                   </div>
                                                 </div>
                                                 <div class="card-footer">

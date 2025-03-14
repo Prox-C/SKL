@@ -158,7 +158,7 @@
       <label style="font-family: 'Poppins';" class="fw-normal" for="floatingInput">Username</label>
     </div>
     <div class="form-floating">
-      <input name="password" style="font-family: 'Poppins';" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+      <input name="password" style="font-family: 'Poppins';" type="password" class="form-control" id="floatingPassword" placeholder="Password" required minlength="8">
       <label for="floatingPassword" class="fw-normal" style="font-family: 'Poppins';">Password</label>
     </div>
 
